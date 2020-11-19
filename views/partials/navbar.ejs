@@ -1,0 +1,53 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <a class="navbar-brand" href="/videogames">
+	<img src="/img/Gamepad-Black.svg" alt="Brand Image" height="40" width="50">
+	</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+		<li class="nav-item active">
+        <a class="nav-link" href="/">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/videogames">Video Games</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Genres
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="videogames/fps">FPS</a>
+          <a class="dropdown-item" href="videogames/act-adv">Action-Adventure</a>
+          <a class="dropdown-item" href="videogames/Plat">Platform</a>
+          <!-- <div class="dropdown-divider"></div> -->
+          <a class="dropdown-item" href="/LootShoot">Looter Shooter</a>
+			<a class="dropdown-item" href="videogames/fighter">Fighter</a>
+          <a class="dropdown-item" href="videogames/adv">Adventure</a>
+          <a class="dropdown-item" href="videogames/br">Battle Royale</a>
+			<a class="dropdown-item" href="videogames/rac">Racing</a>
+          <a class="dropdown-item" href="videogames/sprt">Sports</a>
+          <a class="dropdown-item" href="videogames/hor">Horror</a>
+        </div>
+      </li>
+		<li class="nav-item">
+        <a class="nav-link" href="/videogames/new">Add Game</a>
+      </li>	
+		<% if(user) {%>
+			<li class="nav-item">
+			<a class="nav-link" href="/logout">Sign Out</a>
+			</li>
+		<% } else {%>
+			<li class="nav-item">
+			<a class="nav-link" href="/login">Sign In</a>
+			</li>
+		<%}%>
+    </ul>
+    <form class="form-inline my-2 my-lg-0" action="/videogames/search" method="GET">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" name="term" aria-label="Search">
+      <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </div>
+</nav>

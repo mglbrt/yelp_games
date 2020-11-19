@@ -1,0 +1,24 @@
+<%- include("partials/header") %>
+
+<!-- <form method="get" action="/rpg">
+    <button type="submit">My Favorite RPG</button>
+<form method="get" action="/fps">
+    <button type="submit">My Favorite FPS games</button> -->
+		
+	<div class="container">
+		<div class="row mt-2">
+			<% videogames.forEach((videogame) => { %>
+				
+				<div class="card m-3">
+					<a href="/videogames/<%= videogame._id %>">
+					<img class="card-img card-img-top" src="<%= videogame.image_link %>" alt="picture of the cover art for game">
+						</a>
+					<h3 class="card-title mt-3"><%= videogame.title %></h3>
+					<p class="card-text mb-3 mx-3"><%= videogame.description %></p>
+				</div>
+			<% }) %>
+		</div>
+	</div>
+		
+		
+	<%- include("partials/footer") %>

@@ -1,0 +1,92 @@
+<%- include("partials/header") %>
+<div class="container">
+	<h1>Edit Game Info</h1>
+	<form action="/videogames/<%= game._id %>?_method=PUT" method="POST">
+	  <div class="form-group">
+		<label for="title">Game Title:</label>
+		<input type="text" class="form-control" name="title" value="<%= game.title %>">
+	  </div>
+		
+	   <div class="form-group">
+		<label for="description">Game Description:</label>
+		<input type="text" class="form-control" name="description"  value="<%= game.description %>">
+	  </div>
+		
+		 <div class="form-group">
+		<label for="company">Company:</label>
+		<input type="text" class="form-control" name="company"  value="<%= game.company %>">
+	  </div>
+		
+		 <div class="form-group">
+		<label for="publisher">Publisher:</label>
+		<input type="text" class="form-control" name="publisher" value="<%= game.publisher %>">
+	  </div>
+		
+		 <div class="form-group">
+		<label for="releaseDate">Release Date:</label>
+		<input type="date" class="form-control" name="releaseDate"  value="<%= game.releaseDate.toISOString().split('T')[0] %>">
+	  </div>
+		
+		 <div class="form-group">
+		<label for="series">Series:</label>
+		<input type="text" class="form-control" name="series" value="<%= game.series %>">
+	  </div>
+		
+		 <div class="form-group">
+		<label for="genre">Genre:</label>
+		<select class="form-control" id="genre" name="genre" value="<%= game.genre %>">
+			 <option disabled>-----Please Select A Genre-----</option>
+			 <option <%=game.genre === 'fps' ? 'selected' : '' %>>FPS</option>
+			 <option <%=game.genre === 'action-adventure' ? 'selected' : '' %>>Action-Adventure</option>
+			 <option <%=game.genre === 'platform' ? 'selected' : '' %>>Platform</option>
+			 <option <%=game.genre === 'looter shooter' ? 'selected' : '' %>>Looter Shooter</option>
+			 <option <%=game.genre === 'fighter' ? 'selected' : '' %>>Fighter</option>
+			 <option <%=game.genre === 'adventure' ? 'selected' : '' %>>Adventure</option>
+			 <option <%=game.genre === 'battle royale' ? 'selected' : '' %>>Battle Royale</option>
+			 <option <%=game.genre === 'racing' ? 'selected' : '' %>>Racing</option>
+			 <option <%=game.genre === 'sports' ? 'selected' : '' %>>Sports</option>
+			 <option <%=game.genre === 'horror' ? 'selected' : '' %>>Horror</option>
+			 </select>
+	  </div>
+	
+		
+		 <div class="form-group">
+		<label for="rating">Rating:</label>
+		<input type="text" class="form-control" name="rating" value="<%= game.rating %>">
+	  </div>
+		
+		 <div class="form-group">
+		<label for="platform">Platform:</label>
+		<input type="text" class="form-control" name="platform" value="<%= game.platform %>">
+	  </div>
+		
+	  <div class="form-group">
+		<label for="image">Game Cover Image:</label>
+		<input type="text" class="form-control" name="image_link" value="<%= game.image_link %>">
+	  </div>
+		
+		<!-- <div class="form-group">
+		<label for="new-Game">Game Genre:</label>
+		<input type="text" class="form-control" name="genre" placeholder="e.g. FPS, RPG, Battle Royale etc.">
+	  </div>
+		 -->
+	  <button type="submit" class="btn btn-primary">Submit</button>
+	</form>
+</div>
+<!-- <h1>Add New Game</h1>
+<form method="POST" action="/videoGames">
+	
+	<label for="title">Title</label>
+<input type="text" name="title" autofocus>
+	
+	<label for="description">Description</label>
+<input type="text" name="description">
+	
+	<label for="image">Image Link</label>
+<input type="text" name="image">
+	<br />
+	<br />
+	<button type="submit">Submit</button>
+</form> -->
+    
+<%- include("partials/footer") %>
