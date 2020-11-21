@@ -13,7 +13,12 @@ const passport = require('passport');
 const expressSession = require('express-session');
 
 // Config Import
-const config = require('./config')
+try{
+	var config = require('./config')
+} catch(e) {
+	console.log("Could not import config. You are not working locally.")
+	console.log(e)
+}
 
 // Route Imports
 const gameRoutes = require('./routes/games')
@@ -44,7 +49,12 @@ app.use(morgan('tiny'))
 app.use(bodyParser.urlencoded({extended: true}))
 
 // Mongoose Config
-mongoose.connect(config.db.connection, {useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true});
+try{
+	mongoose.connect(config.db.connection, {useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true});
+} catch(e) {
+	console.log("Could not connect to DB. You are not working locally.")
+	mongoose.connect(process.env.DB_CONNECTION_STRING, {useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true})
+}
  
 // Express Config
 app.set("view engine", "ejs")
@@ -52,7 +62,7 @@ app.use(express.static('public'))
 
 // Express Session Config
 app.use(expressSession({
-	secret:"3324-5225-157984",
+	secret: process.env.ES_SECRET || config.expressSession.secret,
 	resave: false,
 	saveUninitialized: false
 }))
@@ -82,6 +92,6 @@ app.use("/videogames/:id/comments",commentRoutes)
 // ====================
 // LISTEN
 // ====================
-app.listen(3000,() => {
+app.listen(process.env.PORT || 3000,() => {
 	console.log("App listening on port 3000!")
 })
