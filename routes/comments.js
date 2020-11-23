@@ -22,10 +22,12 @@ router.post("/", isLoggedIn, async (req, res) => {
 			gameId: req.body.gameId
 		})
 	console.log(comment)
+	req.flash("success", "Comment added!")
 	res.redirect(`/videogames/${req.body.gameId}`)
 	} catch(err) {
 		console.log(err)
-		res.send("broke... //comment update db")
+		req.flash("error", "Error adding comment..")
+		res.redirect("back")
 	}
 })
 
@@ -47,21 +49,24 @@ router.put("/:commentId", checkCommentOwner, async (req, res) => {
 	try{
 		const comment = await Comment.findByIdAndUpdate(req.params.commentId, {text: req.body.text}, {new: true})
 		console.log(comment)
+		req.flash("success", "Comment editted!")
 		res.redirect(`/videogames/${req.params.id}`)
 	} catch(err) {
 		console.log(err)
-		res.send("broke...//commentupdate")
+		req.flash("error", "Error editting comment..")
+		res.redirect("back")
 	}
 })
 // Delete Comment
 router.delete("/:commentId", checkCommentOwner, async (req, res) => {
 	try{
 		const comment = await Comment.findByIdAndDelete(req.params.commentId)
-		console.log(comment)
+		req.flash("success", "Comment deleted!")
 		res.redirect(`/videogames/${req.params.id}`)
 	} catch(err) {
 		console.log(err)
-		res.send("broke...//commentdelete")
+		req.flash("error", "Error deleting comment..")
+		res.send("back")
 	}
 })
 

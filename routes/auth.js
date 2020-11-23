@@ -11,17 +11,11 @@ router.get('/signup', (req, res) => {
 // Sign Up - Create
 router.post('/signup', async (req, res) => {
 	try {
-		const newUser = await User.register(
-			new User(
-				{
-					username: req.body.username,
-					email: req.body.email
-
-				}
-			), 
-					req.body.password 
-		);
-		console.log(newUser);
+		const newUser = await User.register(new User({
+			username: req.body.username,
+			email: req.body.email
+		}), req.body.password);
+		req.flash("success", `You are now signed up as ${newUser.username}`)
 		passport.authenticate('local')(req, res, () => {
 			res.redirect('/videogames');
 		})
@@ -39,13 +33,16 @@ router.get('/login', (req, res) => {
 // Login
 router.post('/login', passport.authenticate('local', {
 	successRedirect: '/videogames',
-	failureRedirect: '/login'
+	failureRedirect: '/login',
+	failureFlash: true,
+	successFlash: "Logged in successfully"
 	
 }))
 
 // Logout
 	router.get('/logout', (req, res) => {
 	req.logout()
+	req.flash("success", "Logged you out!")
 	res.redirect('/')
 })
 
