@@ -68,6 +68,17 @@ router.get("/search", async (req, res) =>{
 	}
 })
 
+//Genre
+router.get("/genre/:genre", async (req, res) => {
+	const validGenres = ["fps", "action-adventure", "platform", "looter shooter", "fighter", "adventure", "battle-royale", "racing", "sports", "horror"];
+	if(validGenres.includes(req.params.genre.toLowerCase())) {
+	   const videogames = await Game.find({genre: req.params.genre}).exec();
+		res.render("videogames", {videogames})
+	   } else {
+		   res.send("Please enter a valid Genre..")
+	   }
+})
+
 // show
 router.get("/:id", async (req, res) => {
 	try {
