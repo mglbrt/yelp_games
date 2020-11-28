@@ -62,8 +62,12 @@
 		</div>
 	</div>
 <!-- comments -->
-	<div class="row show_comment-header mx-2" id="commentsHeader">
-		Comments
+	<!-- <div class="row show_comment-header mx-2" id="commentsHeader">
+		Comments -->
+	<div class=""  id="voteButtons">
+	<button id="upvoteButton" class="btn btn-outline-success btn-sm mt-3">+</button>
+	<span id="score">10</span>
+	<button id="downVote" class="btn btn-outline-danger btn-sm mt-3">-</button>
 	</div>
 	<a href="/videogames/<%=game._id%>/comments/new">
 	<button class="btn btn-success btn-lg mt-2 mb-4" id="commentButton">Add Comment</button>
@@ -73,7 +77,7 @@
 			<div class="col-2 border-right my-auto" id="commentUsername">
 				<%= comment.user.username %>
 			</div>
-			<div class="col-8 my-auto">
+			<div class="col-8 my-auto" id="commentText">
 				<%= comment.text %>
 			</div>
 			<!-- comments edit-delete -->
@@ -88,7 +92,7 @@
 		</div>
 	<% })) %>
 	<div class="py-5"></div>
-</div>
+<!-- </div> -->
 
 
 <%- include('partials/footer') %>
