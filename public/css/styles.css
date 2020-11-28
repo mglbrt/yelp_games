@@ -36,7 +36,87 @@
 	width: 80%;
 }
 
+body {
+	background-color: #1e211f;
+}
+
+#createAccountText {
+	color: white;
+}
+
+#signUpText {
+	color: white;
+	font-size: 20px;
+}
+
+/* Add new game */
+.addNewGamePageFont {
+	color: white;
+font-family: 'Syne Mono', monospace, sans-serif;}
+
+/* Landing Page  */
 #homeTitle {
+	background-color: black;
+	color: white;
 	text-align: center;
-	font-family: 'rubik mono one', monospace, sans-serif;
+	margin: auto;
+	width: 50%;
+	height: 3rem;
+	font-size:2.5rem;
+	font-family: 'Syne Mono', monospace, sans-serif;
+}
+
+.gameBackground {
+	background-color: white;
+	width: 45%;
+	margin: auto;
+	height: 40%
+}
+
+#bodyLand {
+	background-color: black;
+	background-image: url('https://subwallpaper.com/Widescreen-Wallpapers/video-game-wallpapers-classic-desktop-background-For-Widescreen-Wallpaper.jpg');"
+}
+
+/* Game show page  */
+#gameInfo2 {
+	font-family: 'Syne Mono', monospace, sans-serif;
+
+}
+
+#gameInfo1 {
+	color: white;
+	font-family: 'Syne Mono', monospace, sans-serif;
+}
+
+h1 {
+	text-decoration: underline;
+}
+
+/* Comments */
+#commentButton {
+	height: 1.5rem;
+	line-height: .5rem;
+	font-size: .7rem;
+	text-align: center:
+}
+
+#newCommentPageFont {
+	color: white;
+	font-family: 'Syne Mono', monospace, sans-serif;
+}
+
+#commentUsername {
+	text-decoration: underline;
+}
+
+#commentsHeader {
+	text-decoration: underline;
+}
+
+/* Edit Game  */
+
+#editGameText {
+	color: white;
+	font-family: 'Syne Mono', monospace, sans-serif;
 }

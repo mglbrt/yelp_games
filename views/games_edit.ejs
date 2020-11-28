@@ -1,5 +1,5 @@
 <%- include("partials/header") %>
-<div class="container">
+<div class="container" id="editGameText">
 	<h1>Edit Game Info</h1>
 	<form action="/videogames/<%= game._id %>?_method=PUT" method="POST">
 	  <div class="form-group">
@@ -39,14 +39,17 @@
 			 <option <%=game.genre === 'fps' ? 'selected' : '' %>>FPS</option>
 			 <option <%=game.genre === 'action-adventure' ? 'selected' : '' %>>Action-Adventure</option>
 			 <option <%=game.genre === 'platform' ? 'selected' : '' %>>Platform</option>
-			 <option <%=game.genre === 'looter shooter' ? 'selected' : '' %>>Looter Shooter</option>
+			 <option <%=game.genre === 'lootershooter' ? 'selected' : '' %>>Looter Shooter</option>
 			 <option <%=game.genre === 'fighter' ? 'selected' : '' %>>Fighter</option>
 			 <option <%=game.genre === 'adventure' ? 'selected' : '' %>>Adventure</option>
-			 <option <%=game.genre === 'battle royale' ? 'selected' : '' %>>Battle Royale</option>
+			 <option <%=game.genre === 'battleroyale' ? 'selected' : '' %>>Battle-Royale</option>
 			 <option <%=game.genre === 'racing' ? 'selected' : '' %>>Racing</option>
 			 <option <%=game.genre === 'sports' ? 'selected' : '' %>>Sports</option>\
 			 <option <%=game.genre === 'rhythm' ? 'selected' : '' %>>Rhythm</option>
 			 <option <%=game.genre === 'horror' ? 'selected' : '' %>>Horror</option>
+			 <option <%=game.genre === 'sandbox' ? 'selected' : '' %>>SandBox</option>
+			 <option <%=game.genre === 'lifesimulation' ? 'selected' : '' %>>Life Simulation</option>
+			 <option <%=game.genre === 'vehiclecombat' ? 'selected' : '' %>>Vehicle Combat</option>
 			 </select>
 	  </div>
 	

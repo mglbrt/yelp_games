@@ -1,39 +1,39 @@
 <%- include("partials/header") %>
 <div class="container">
-	<h1>Add New Game</h1>
+	<h1 class="addNewGamePageFont">Add New Game</h1>
 	<form action="/videogames" method="POST">
 	  <div class="form-group">
-		<label for="title">Game Title:</label>
+		<label for="title" class="addNewGamePageFont">Game Title:</label>
 		<input type="text" class="form-control" name="title" autofocus placeholder="e.g. Grand Theft Auto">
 	  </div>
 		
 	   <div class="form-group">
-		<label for="description">Game Description:</label>
+		<label for="description" class="addNewGamePageFont">Game Description:</label>
 		<input type="text" class="form-control" name="description" placeholder="Game description here...">
 	  </div>
 		
 		 <div class="form-group">
-		<label for="company">Company:</label>
+		<label for="company" class="addNewGamePageFont">Company:</label>
 		<input type="text" class="form-control" name="company" placeholder="e.g. Rockstar Games, BioWare, Infinity Ward, DICE, etc.">
 	  </div>
 		
 		 <div class="form-group">
-		<label for="publisher">Publisher:</label>
+		<label for="publisher" class="addNewGamePageFont">Publisher:</label>
 		<input type="text" class="form-control" name="publisher" placeholder="e.g. Activision, Take-Two Interactive, EA">
 	  </div>
 		
 		 <div class="form-group">
-		<label for="releaseDate">Release Date:</label>
+		<label for="releaseDate" class="addNewGamePageFont">Release Date:</label>
 		<input type="date" class="form-control" name="releaseDate" placeholder="e.g. Month Day, Year">
 	  </div>
 		
 		 <div class="form-group">
-		<label for="series">Series:</label>
+		<label for="series" class="addNewGamePageFont">Series:</label>
 		<input type="text" class="form-control" name="series" placeholder="e.g. Grand Theft Auto, Call of Duty, etc.">
 	  </div>
 		
 		 <div class="form-group">
-		<label for="genre">Genre:</label>
+		<label for="genre" class="addNewGamePageFont">Genre:</label>
 		<select class="form-control" id="genre" name="genre" placeholder="e.g. FPS, Action-Adventure, Horror, etc.">
 			 <option disabled selected>-----Please Select A Genre-----</option>
 			 <option>FPS</option>
@@ -47,22 +47,25 @@
 			 <option>Sports</option>
 			<option>Rhythm</option>
 			 <option>Horror</option>
+			<option>SandBox</option>
+			<option>Life Simulation</option>
+			<option>Vehicle Combat</option>
 			 </select>
 	  </div>
 	
 		
 		 <div class="form-group">
-		<label for="rating">Rating:</label>
+		<label for="rating" class="addNewGamePageFont">Rating:</label>
 		<input type="text" class="form-control" name="rating" placeholder="e.g. E, T, M, etc.">
 	  </div>
 		
 		 <div class="form-group">
-		<label for="platform">Platform:</label>
+		<label for="platform" class="addNewGamePageFont">Platform:</label>
 		<input type="text" class="form-control" name="platform" placeholder="e.g. PS4, PS5, Xbox One, Xbox Series X, PC">
 	  </div>
 		
 	  <div class="form-group">
-		<label for="image">Game Cover Image:</label>
+		<label for="image" class="addNewGamePageFont">Game Cover Image:</label>
 		<input type="text" class="form-control" name="image_link" placeholder="http://www.my-image-address.com">
 	  </div>
 		

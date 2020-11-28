@@ -36,7 +36,9 @@ router.post("/", isLoggedIn, async (req, res) => {
 		owner: {
 			id: req.user._id,
 			username: req.user.username
-		}
+		},
+		upvotes:[req.user.username],
+		downvotes:[]
 	}
 	try{
 		const game = await Game.create(newGame)
@@ -70,7 +72,7 @@ router.get("/search", async (req, res) =>{
 
 //Genre
 router.get("/genre/:genre", async (req, res) => {
-	const validGenres = ["fps", "action-adventure", "platform", "looter shooter", "fighter", "adventure", "battle-royale", "racing", "sports", "horror"];
+	const validGenres = ["fps", "action-adventure", "platform", "lootershooter", "fighter", "adventure", "battle-royale", "racing", "sports", "horror", "sandbox", "vehiclecombat", "lifesimulation"];
 	if(validGenres.includes(req.params.genre.toLowerCase())) {
 	   const videogames = await Game.find({genre: req.params.genre}).exec();
 		res.render("videogames", {videogames})
