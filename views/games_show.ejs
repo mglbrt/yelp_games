@@ -65,9 +65,9 @@
 	<!-- <div class="row show_comment-header mx-2" id="commentsHeader">
 		Comments -->
 	<div class=""  id="voteButtons">
-	<button id="upvoteButton" class="btn btn-outline-success btn-sm mt-3">+</button>
+	<button id="upvote_btn" class="btn btn-outline-success btn-sm mt-3">+</button>
 	<span id="score">10</span>
-	<button id="downVote" class="btn btn-outline-danger btn-sm mt-3">-</button>
+	<button id="downvote_btn" class="btn btn-outline-danger btn-sm mt-3">-</button>
 	</div>
 	<a href="/videogames/<%=game._id%>/comments/new">
 	<button class="btn btn-success btn-lg mt-2 mb-4" id="commentButton">Add Comment</button>
@@ -93,6 +93,7 @@
 	<% })) %>
 	<div class="py-5"></div>
 <!-- </div> -->
+	<script src="/js/games_show.js"></script>
 
 
 <%- include('partials/footer') %>
