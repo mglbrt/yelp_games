@@ -18,9 +18,15 @@ const sendVote = async(voteType) => {
 	}
 	
 	if (voteType === "up" ){
-		options.body = JSON.stringify({vote: "up"})
+		options.body = JSON.stringify({
+			vote: "up",
+			gameId
+		})
 	} else if(voteType === "down"){
-		options.body = JSON.stringify({vote: "down"})
+		options.body = JSON.stringify({
+			vote: "down",
+			gameId
+		})
 	} else {
 		throw "voteType must be 'up' or 'down'" 
 	}
@@ -36,9 +42,6 @@ const sendVote = async(voteType) => {
 	})
 	
 }
-
-
-
 
 //========================
 // ADD EVENT LISTENERS
