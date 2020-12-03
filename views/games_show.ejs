@@ -66,11 +66,15 @@
 <!------------------>
 	
 <div class=""  id="voteButtons">
-	<% if(user) { %>
+	<% if (user && game.upvotes.indexOf(user.username) >= 0) { %>
+		<button id="upvote_btn" class="btn btn-success btn-sm mt-3">+</button>
+	<% } else if (user) { %>
 		<button id="upvote_btn" class="btn btn-outline-success btn-sm mt-3">+</button>
 	<% } %>
-		<span id="score">10</span>
-	<% if(user) { %>
+		<span id="score"><%- game.upvotes.length - game.downvotes.length %> </span>
+	<% if(user && game.downvotes.indexOf(user.username) >= 0) { %>
+		<button id="downvote_btn" class="btn btn-danger btn-sm mt-3">-</button>
+	<% } else if(user) { %>
 		<button id="downvote_btn" class="btn btn-outline-danger btn-sm mt-3">-</button>
 	<% } %>
 </div>

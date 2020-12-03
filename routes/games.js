@@ -82,12 +82,58 @@ router.get("/genre/:genre", async (req, res) => {
 })
 
 // Vote
-router.post("/vote", isLoggedIn, async (req, res) => {
+router.post("/voteType", isLoggedIn, async (req, res) => {
 	console.log("Request body:", req.body)
 	const game = await Game.findById(req.body.gameId)
-	console.log(game)
-	res.json(game)
-})
+	const alreadyUpvoted = game.upvotes.indexOf(req.user.username)
+	const alreadyDownvoted = game.downvotes.indexOf(req.user.username)
+	
+	let response = {}
+	if(alreadyUpvoted === -1 && alreadyDownvoted === -1) {
+		if (req.body.voteType === "up") {
+			game.upvotes.push(req.user.username)
+			game.save()
+			response = {message: "Upvote tallied!", code: 1}
+		} else if (req.body.voteType === "down") {
+			game.downvotes.push(req.user.username)
+			game.save()
+			response =  {message: "Downvote tallied!", code: -1}
+		} else {
+			response = {message: "Error 1", code: "err"}
+		}
+		} else if (alreadyUpvoted >=0) {
+		if (req.body.voteType === "up"){
+			game.upvotes.splice(alreadyUpvoted, 1)
+			game.save()
+			response = {message: "Upvote removed", code: 0}
+		} else if (req.body.voteType === "down") {
+			game.upvotes.splice(alreadyUpvoted, 1)
+			game.downvotes.push(req.user.username)
+			game.save()
+			response = {message: "Changed to Downvote", code: -1}
+		} else {
+			response = {message: "Error 2", code: "err"}
+		}
+		} else if (alreadyDownvoted >=0){
+		if (req.body.voteType === "up"){
+			game.downvotes.splice(alreadyDownvoted, 1)
+			game.upvotes.push(req.user.username)
+			game.save()
+			response = {message: "Changed to Upvote", code: 1}
+		} else if (req.body.voteType === "down") {
+			game.downvotes.splice(alreadyDownvoted, 1)
+			game.save()
+			response = {message: "Downvote removed!", code: 0}
+		} else {
+		response = {message: "Error 3", code: "err"}
+		} 
+	} else {
+		response = {message: "Error 4", code: "err"}
+	}
+		response.score = game.upvotes.length - game.downvotes.length
+	
+		res.json(response)
+	})
 
 // show
 router.get("/:id", async (req, res) => {
