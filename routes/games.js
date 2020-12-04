@@ -32,6 +32,7 @@ router.post("/", isLoggedIn, async (req, res) => {
 		genre,
 		rating: req.body.rating,
 		platform: req.body.platform,
+		trailer: req.body.trailer,
 		image_link: req.body.image_link,
 		owner: {
 			id: req.user._id,
@@ -166,6 +167,7 @@ router.put("/:id", checkGameOwner, async (req, res) => {
 		genre,
 		rating: req.body.rating,
 		platform: req.body.platform,
+		trailer: req.body.trailer,
 		image_link: req.body.image_link
 	}
 	try{
