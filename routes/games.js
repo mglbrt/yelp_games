@@ -32,6 +32,7 @@ router.post("/", isLoggedIn, async (req, res) => {
 		genre,
 		rating: req.body.rating,
 		platform: req.body.platform,
+		purchase_link: req.body.purchase_link,
 		trailer: req.body.trailer,
 		image_link: req.body.image_link,
 		owner: {
@@ -73,7 +74,7 @@ router.get("/search", async (req, res) =>{
 
 //Genre
 router.get("/genre/:genre", async (req, res) => {
-	const validGenres = ["fps", "action-adventure", "platform", "lootershooter", "fighter", "adventure", "battle-royale", "racing", "sports", "horror", "sandbox", "vehiclecombat", "lifesimulation"];
+	const validGenres = ["fps", "action-adventure", "platform", "lootershooter", "fighter", "adventure", "battle-royale", "racing", "sports", "rhythm", "horror", "sandbox", "vehicle-combat", "life-simulation"];
 	if(validGenres.includes(req.params.genre.toLowerCase())) {
 	   const videogames = await Game.find({genre: req.params.genre}).exec();
 		res.render("videogames", {videogames})
@@ -167,6 +168,7 @@ router.put("/:id", checkGameOwner, async (req, res) => {
 		genre,
 		rating: req.body.rating,
 		platform: req.body.platform,
+		purchase_link: req.body.purchase_link,
 		trailer: req.body.trailer,
 		image_link: req.body.image_link
 	}

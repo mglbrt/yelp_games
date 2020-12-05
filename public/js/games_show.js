@@ -46,7 +46,7 @@ const sendVote = async(voteType) => {
 }
 
 const handleVote = (newScore, code) => {
-	score.innertext = newScore
+	score.innerText = newScore
 	
 	if(code === 0 ) {
 		upvoteBtn.classList.remove("btn-success")

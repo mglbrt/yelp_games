@@ -9,6 +9,7 @@ const gameSchema = new mongoose.Schema({
 	genre: String,
 	rating: String,
 	platform: String,
+	purchase_link: String,
 	trailer: String,
 	image_link: String,
 	owner: {

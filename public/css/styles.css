@@ -79,12 +79,16 @@ font-family: 'Syne Mono', monospace, sans-serif;}
 }
 
 /* Game show page  */
-#gameInfo2 {
-	font-family: 'Syne Mono', monospace, sans-serif;
-
+#gamePageTitle {
+	text-align: center;
 }
 
-#gameInfo1 {
+#gameInfoTable {
+	font-family: 'Syne Mono', monospace, sans-serif;
+	color: white;
+}
+
+#gameInfoTop {
 	color: white;
 	font-family: 'Syne Mono', monospace, sans-serif;
 }
