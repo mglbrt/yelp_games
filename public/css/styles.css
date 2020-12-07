@@ -1,3 +1,4 @@
+/* Main VideoGames Page */
 .games-container {
 	display: flex;
 	flex-wrap: wrap;
@@ -35,11 +36,11 @@
 .show_image-container img {
 	width: 80%;
 }
-
+/*  All pages */
 body {
 	background-color: #1e211f;
 }
-
+/* Sign Up Page */
 #createAccountText {
 	color: white;
 }
